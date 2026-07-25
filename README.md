@@ -1,5 +1,7 @@
 # C8-CRUNCH-LABS-WEB-DEV Introduction to HTML, CSS, and JavaScript 📱💻
 
+> A free, hands-on introduction to web development — build and deploy responsive, interactive websites with HTML, CSS, and JavaScript, plus Git/GitHub and the DOM.
+
 Welcome to the **C8 - Web Development Section 1** course, hosted by the **Code Crunch Learner Organization** at **Florida International University**! 🐯 This course will teach you the foundational skills needed to build and launch your own websites using HTML, CSS, and JavaScript, with some fun interactive elements! 🚀
 
 ## Course Overview 🎓
