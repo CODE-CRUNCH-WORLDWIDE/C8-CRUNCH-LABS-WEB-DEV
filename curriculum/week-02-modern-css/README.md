@@ -27,6 +27,14 @@ By the end of this week, you will be able to:
 - **Audit** every page for color contrast (WCAG 2.2 AA — 4.5:1 for body text, 3:1 for large text) and fix what fails.
 - **Defend** the choice not to install a CSS framework this week, in a sentence or two.
 
+## Standards this week meets
+
+| Bar | What this week is measured against |
+| --- | --- |
+| University | `COP 4813` — Apply CSS to control presentation: the cascade, selectors, specificity, the box model, colour and typography. |
+| Industry | Turn a design into a stylesheet a team can extend — tokens instead of magic numbers, so a brand colour change is one edit rather than forty. |
+| Beyond the bar | A theme driven entirely by custom properties, with dark mode as a single tier of overrides and every colour pairing checked against WCAG 2.2 AA contrast — `exercises/exercise-03-custom-properties-theme.md` |
+
 ---
 
 ## Prerequisites

@@ -32,6 +32,14 @@ By the end of this week, you will be able to:
 - **Compose** a small but realistic app — a multi-route React SPA with route-level data loading via TanStack Query, global theme state via Zustand, and code-split admin routes — and defend each architectural choice by docs URL.
 - **Audit** which state goes where in a small spec, with the rule of thumb: *if the user expects to bookmark or share it, it lives in the URL; if it came from a server, it lives in TanStack Query; if it is global UI sugar, it lives in Zustand; otherwise it is `useState` in the component that needs it.*
 
+## Standards this week meets
+
+| Bar | What this week is measured against |
+| --- | --- |
+| University | `CS 4241` — Build a client-side application with navigation between views and managed application state. |
+| Industry | Decide where each piece of state lives before writing the component, so a URL somebody pastes into a chat opens the same screen they were looking at. |
+| Beyond the bar | An optimistic mutation with a working rollback — the cache updated before the server answers and reverted correctly when the server refuses — `challenges/challenge-02-optimistic-mutation.md` |
+
 ---
 
 ## Prerequisites

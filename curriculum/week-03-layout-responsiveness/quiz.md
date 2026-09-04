@@ -11,6 +11,13 @@ Ten questions. Lecture notes closed. Aim for 9/10.
 - C) `flex-direction`
 - D) `flex-wrap`
 
+<details>
+<summary>Answer</summary>
+
+**C** — `flex-direction` decides whether the main axis is horizontal (`row`, the default) or vertical (`column`). `justify-content` and `align-items` operate **on** those axes — they do not choose which axis is which.
+
+</details>
+
 ---
 
 **Q2.** A flex container has `display: flex; justify-content: space-between; align-items: center;` and contains a logo and a nav. What is the visual result?
@@ -19,6 +26,13 @@ Ten questions. Lecture notes closed. Aim for 9/10.
 - B) Logo and nav are in a row; the logo is on the left, the nav on the right; both are vertically centered.
 - C) Logo and nav are in a row, both pushed to the left.
 - D) Logo and nav are centered on the line, with equal space around each.
+
+<details>
+<summary>Answer</summary>
+
+**B** — `justify-content: space-between` pushes the first item to the start of the main axis (left) and the last to the end (right); `align-items: center` centers both on the cross axis (vertically). This is the canonical site-header layout.
+
+</details>
 
 ---
 
@@ -29,6 +43,13 @@ Ten questions. Lecture notes closed. Aim for 9/10.
 - C) `repeat(auto-fit, minmax(260px, 1fr))`
 - D) `repeat(auto-fit, minmax(min(100%, 260px), 1fr))`
 
+<details>
+<summary>Answer</summary>
+
+**D** — `repeat(auto-fit, minmax(min(100%, 260px), 1fr))`. The inner `min(100%, 260px)` ensures the minimum column width can drop below 260 px when the container itself is narrower — preventing horizontal scroll on a 320 px phone.
+
+</details>
+
 ---
 
 **Q4.** In a `grid-template-areas` block, what does the period (`.`) character do?
@@ -37,6 +58,13 @@ Ten questions. Lecture notes closed. Aim for 9/10.
 - B) It declares an empty cell that no item occupies.
 - C) It is a shorthand for `auto`.
 - D) It is required at the end of each row.
+
+<details>
+<summary>Answer</summary>
+
+**B** — A period in `grid-template-areas` declares an empty cell, useful when you want a gap in the grid that no item occupies.
+
+</details>
 
 ---
 
@@ -47,6 +75,13 @@ Ten questions. Lecture notes closed. Aim for 9/10.
 - C) Use Grid for any layout with three or more items.
 - D) Grid and Flexbox are interchangeable; pick whichever you prefer.
 
+<details>
+<summary>Answer</summary>
+
+**B** — Grid for two-dimensional layouts (rows and columns that relate); Flexbox for one-dimensional layouts (a row or a column). Item count is not the relevant criterion.
+
+</details>
+
 ---
 
 **Q6.** Which media query is the **mobile-first** way to declare "at viewports of 720 CSS pixels and wider, the grid becomes three columns"?
@@ -55,6 +90,13 @@ Ten questions. Lecture notes closed. Aim for 9/10.
 - B) `@media (min-width: 720px) { ... }`
 - C) `@media screen and (width = 720px) { ... }`
 - D) `@media (orientation: landscape) { ... }`
+
+<details>
+<summary>Answer</summary>
+
+**B** — Mobile-first declares the small case as default and layers on the desktop case with `@media (min-width: ...)`. `max-width` is the desktop-first style.
+
+</details>
 
 ---
 
@@ -65,6 +107,13 @@ Ten questions. Lecture notes closed. Aim for 9/10.
 - C) Visual: Contact, About, Home. Tab order is **still** Home, About, Contact — the visual and DOM order disagree, which can confuse keyboard users.
 - D) The nav fails to render; `row-reverse` is invalid on a `<nav>`.
 
+<details>
+<summary>Answer</summary>
+
+**C** — `row-reverse` reorders the **visual** layout but not the DOM. Tab order, screen-reader order, and find-in-page all walk the DOM. Per WCAG 2.2 SC 1.3.2, the visual order and DOM order should match.
+
+</details>
+
 ---
 
 **Q8.** A container query is the right tool when:
@@ -73,6 +122,13 @@ Ten questions. Lecture notes closed. Aim for 9/10.
 - B) You want a layout that responds to the viewport but ignores the user's font size.
 - C) You want to nest media queries inside other media queries.
 - D) Container queries are an experimental feature and should be avoided in production.
+
+<details>
+<summary>Answer</summary>
+
+**A** — Container queries (`@container`) key on the size of an ancestor element with `container-type: inline-size`, not the viewport. They are stable in every browser since 2023.
+
+</details>
 
 ---
 
@@ -83,6 +139,13 @@ Ten questions. Lecture notes closed. Aim for 9/10.
 - C) SC 1.4.10 — Reflow
 - D) SC 2.4.3 — Focus Order
 
+<details>
+<summary>Answer</summary>
+
+**C** — SC 1.4.10 (Reflow) is the criterion. It requires content to reflow at 320 CSS pixels without horizontal scroll for two-dimensional content (with exceptions for inherently two-dimensional content like maps and complex data tables).
+
+</details>
+
 ---
 
 **Q10.** On an `<img>` element, the `sizes` attribute tells the browser:
@@ -92,24 +155,13 @@ Ten questions. Lecture notes closed. Aim for 9/10.
 - C) The image's natural pixel dimensions.
 - D) Which CSS media queries to apply to the image.
 
----
-
-## Answer key
-
 <details>
-<summary>Click to reveal</summary>
+<summary>Answer</summary>
 
-1. **C** — `flex-direction` decides whether the main axis is horizontal (`row`, the default) or vertical (`column`). `justify-content` and `align-items` operate **on** those axes — they do not choose which axis is which.
-2. **B** — `justify-content: space-between` pushes the first item to the start of the main axis (left) and the last to the end (right); `align-items: center` centers both on the cross axis (vertically). This is the canonical site-header layout.
-3. **D** — `repeat(auto-fit, minmax(min(100%, 260px), 1fr))`. The inner `min(100%, 260px)` ensures the minimum column width can drop below 260 px when the container itself is narrower — preventing horizontal scroll on a 320 px phone.
-4. **B** — A period in `grid-template-areas` declares an empty cell, useful when you want a gap in the grid that no item occupies.
-5. **B** — Grid for two-dimensional layouts (rows and columns that relate); Flexbox for one-dimensional layouts (a row or a column). Item count is not the relevant criterion.
-6. **B** — Mobile-first declares the small case as default and layers on the desktop case with `@media (min-width: ...)`. `max-width` is the desktop-first style.
-7. **C** — `row-reverse` reorders the **visual** layout but not the DOM. Tab order, screen-reader order, and find-in-page all walk the DOM. Per WCAG 2.2 SC 1.3.2, the visual order and DOM order should match.
-8. **A** — Container queries (`@container`) key on the size of an ancestor element with `container-type: inline-size`, not the viewport. They are stable in every browser since 2023.
-9. **C** — SC 1.4.10 (Reflow) is the criterion. It requires content to reflow at 320 CSS pixels without horizontal scroll for two-dimensional content (with exceptions for inherently two-dimensional content like maps and complex data tables).
-10. **B** — `sizes` is a list of media-query → width pairs that tells the browser the **rendered** size of the image at each breakpoint. Combined with `srcset`, the browser picks the smallest file that meets the need.
+**B** — `sizes` is a list of media-query → width pairs that tells the browser the **rendered** size of the image at each breakpoint. Combined with `srcset`, the browser picks the smallest file that meets the need.
 
 </details>
 
 If under 7, re-read [Lecture 1](./lecture-notes/01-flexbox-mental-model.md) and [Lecture 2](./lecture-notes/02-grid-and-when-to-use-which.md). If 9 or above, you are ready for the [homework](./homework.md).
+
+---

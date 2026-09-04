@@ -38,6 +38,14 @@ By the end of this week, you will be able to:
 - **Recognize** the common test-suite anti-patterns — `expect.assertions(0)`-by-accident, `await sleep(2000)`, `cy.wait(500)`, `jest.useFakeTimers()` in every file, snapshot tests of entire component trees — and rewrite them into deterministic, fast-feedback tests.
 - **Decide** what to test and what not to test. The line: test behavior the user can observe; do not test that `useState` was called; do not test third-party libraries; do not test trivial getters. Reference: Kent C. Dodds, "Write tests. Not too many. Mostly integration." <https://kentcdodds.com/blog/write-tests>.
 
+## Standards this week meets
+
+| Bar | What this week is measured against |
+| --- | --- |
+| University | `CS 4241` — Test a web application, and use development tooling to find and diagnose defects. |
+| Industry | Leave behind a suite the next person can run on their first day — one that fails for a real reason and tells them which one. |
+| Beyond the bar | The failure path is taught as its own skill: capture a Playwright trace from a red CI run and read it back frame by frame, network call by network call — `lecture-notes/03-playwright-fixtures-traces-and-ci.md` |
+
 ---
 
 ## Prerequisites

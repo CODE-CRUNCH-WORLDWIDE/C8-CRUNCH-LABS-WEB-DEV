@@ -27,6 +27,14 @@ By the end of this week, you will be able to:
 - **Audit** every layout for keyboard order, focus visibility, and the "zoom to 200%" test from WCAG 2.2.
 - **Defend** your choice of layout engine in a code review, citing the CSS Grid Layout Module and the CSS Flexible Box Layout Module.
 
+## Standards this week meets
+
+| Bar | What this week is measured against |
+| --- | --- |
+| University | `CIS 3319` — Produce responsive layouts that adapt across the range of devices people actually browse on. |
+| Industry | Ship one layout that holds from a 320 px phone to a 1440 px laptop instead of a separate mobile site, and say in a sentence why each region uses Flexbox or Grid. |
+| Beyond the bar | A card grid that wraps from one column to four with no media query at all, using `repeat(auto-fit, minmax(...))`, so the layout responds to available space rather than to a guessed breakpoint — `exercises/exercise-01-card-grid.md` |
+
 ---
 
 ## Prerequisites

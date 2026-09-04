@@ -27,6 +27,14 @@ By the end of this week, you will be able to:
 - **Test** a component with the keyboard alone (no mouse), with axe DevTools, and with at least one screen reader (VoiceOver on macOS, NVDA on Windows, Orca on Linux — all free).
 - **Cite** WCAG 2.2 AA for any accessibility decision you defend: which Success Criterion the decision satisfies and at what conformance level.
 
+## Standards this week meets
+
+| Bar | What this week is measured against |
+| --- | --- |
+| University | `COP 4813` — Manipulate the document object model and handle browser events to make a page interactive. |
+| Industry | Build the interactive control the rest of the product depends on, then prove it works for somebody using a keyboard and a screen reader rather than a mouse. |
+| Beyond the bar | A custom listbox built to the WAI-ARIA Authoring Practices — the roles, the properties and the whole keyboard contract, tested with an actual screen reader — `challenges/challenge-01-aria-rich-listbox.md` |
+
 ---
 
 ## Prerequisites

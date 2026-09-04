@@ -21,6 +21,14 @@ By the end of this week, you will be able to:
 - **Validate** every page against the W3C validator and **audit** every page with axe DevTools, fixing every error and every serious warning.
 - **Defend** the choice of semantics in a code review — citing the WHATWG HTML Living Standard and WCAG 2.2 AA.
 
+## Standards this week meets
+
+| Bar | What this week is measured against |
+| --- | --- |
+| University | `COP 4813` — Author standards-compliant HTML documents with correct semantic markup, and validate them. |
+| Industry | Mark up a page that somebody else will style, script, index and read with a screen reader six months from now, and defend every element choice in review. |
+| Beyond the bar | A whole week with no CSS and no JavaScript, in which every page must pass the W3C validator and an axe DevTools audit before a single style rule is allowed — `exercises/exercise-03-validate-and-audit.md` |
+
 ---
 
 ## Prerequisites

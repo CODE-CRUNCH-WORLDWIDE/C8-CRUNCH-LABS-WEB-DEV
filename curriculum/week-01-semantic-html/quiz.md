@@ -11,6 +11,13 @@ Ten questions. Lecture notes closed. Aim for 9/10.
 - C) `<meta http-equiv="standards-mode">`
 - D) `<?xml version="1.0"?>`
 
+<details>
+<summary>Answer</summary>
+
+**B** — `<!doctype html>` is the HTML5 doctype. Without it, browsers fall back to quirks mode.
+
+</details>
+
 ---
 
 **Q2.** How many `<main>` elements should a single HTML page contain?
@@ -19,6 +26,13 @@ Ten questions. Lecture notes closed. Aim for 9/10.
 - B) Exactly one.
 - C) One per `<section>`.
 - D) As many as the page has logical content blocks.
+
+<details>
+<summary>Answer</summary>
+
+**B** — Exactly one. `<main>` marks the document's primary content; there can be only one per page.
+
+</details>
 
 ---
 
@@ -29,6 +43,13 @@ Ten questions. Lecture notes closed. Aim for 9/10.
 - C) `alt=""`.
 - D) `role="decoration"`.
 
+<details>
+<summary>Answer</summary>
+
+**C** — `alt=""` (empty alt) tells assistive tech to skip the image. Omitting `alt` is *invalid HTML*, and a non-empty placeholder like "decorative image" is read aloud and adds noise.
+
+</details>
+
 ---
 
 **Q4.** A page has an `<h1>`, then an `<h2>`, then an `<h4>`. Which WCAG-relevant rule does this break?
@@ -37,6 +58,13 @@ Ten questions. Lecture notes closed. Aim for 9/10.
 - B) "Heading levels must not skip steps going down."
 - C) "Every heading must contain at least 10 characters."
 - D) "Headings must be wrapped in a `<section>`."
+
+<details>
+<summary>Answer</summary>
+
+**B** — Heading levels must not skip going down. `<h1>` → `<h2>` → `<h4>` skips `<h3>` and breaks the document outline. WCAG 1.3.1 (Info and Relationships) and 2.4.6 (Headings and Labels) both apply.
+
+</details>
 
 ---
 
@@ -47,6 +75,13 @@ Ten questions. Lecture notes closed. Aim for 9/10.
 - C) `<article>`
 - D) `<main>`
 
+<details>
+<summary>Answer</summary>
+
+**C** — `<article>` is for self-contained compositions: blog posts, news stories, user comments, product cards. The HTML Living Standard explicitly lists comments as an `<article>` example.
+
+</details>
+
 ---
 
 **Q6.** What is the **first rule of ARIA**?
@@ -55,6 +90,13 @@ Ten questions. Lecture notes closed. Aim for 9/10.
 - B) Don't use ARIA — prefer native HTML elements when they provide the semantics you need.
 - C) Use `aria-hidden="true"` on every decorative element.
 - D) ARIA attributes override any conflicting HTML attribute.
+
+<details>
+<summary>Answer</summary>
+
+**B** — The "no-ARIA" rule. Native HTML elements come with the correct semantics baked in; ARIA should only fill gaps the platform cannot.
+
+</details>
 
 ---
 
@@ -65,6 +107,13 @@ Ten questions. Lecture notes closed. Aim for 9/10.
 - C) Anywhere in the document.
 - D) Inside `<body>`, before the first text node.
 
+<details>
+<summary>Answer</summary>
+
+**A** — Inside the first 1024 bytes, ideally as the first child of `<head>`. The browser uses those bytes to detect encoding before parsing the rest of the document.
+
+</details>
+
 ---
 
 **Q8.** Which attribute on `<html>` is required for accessibility and tells screen readers which pronunciation engine to use?
@@ -73,6 +122,13 @@ Ten questions. Lecture notes closed. Aim for 9/10.
 - B) `xmlns`
 - C) `lang`
 - D) `accesskey`
+
+<details>
+<summary>Answer</summary>
+
+**C** — `lang`. Screen readers use it to choose a pronunciation engine; search engines use it for language-aware indexing.
+
+</details>
 
 ---
 
@@ -83,6 +139,13 @@ Ten questions. Lecture notes closed. Aim for 9/10.
 - C) 3.3.2 Labels or instructions
 - D) 4.1.1 Parsing
 
+<details>
+<summary>Answer</summary>
+
+**C** — 3.3.2 Labels or instructions. Every form input must have an associated label (or `aria-label` / `aria-labelledby`).
+
+</details>
+
 ---
 
 **Q10.** You want a clickable element that submits a form. Which is the correct choice?
@@ -92,24 +155,13 @@ Ten questions. Lecture notes closed. Aim for 9/10.
 - C) `<button type="submit">Submit</button>`
 - D) `<a href="#" onclick="submit()">Submit</a>`
 
----
-
-## Answer key
-
 <details>
-<summary>Click to reveal</summary>
+<summary>Answer</summary>
 
-1. **B** — `<!doctype html>` is the HTML5 doctype. Without it, browsers fall back to quirks mode.
-2. **B** — Exactly one. `<main>` marks the document's primary content; there can be only one per page.
-3. **C** — `alt=""` (empty alt) tells assistive tech to skip the image. Omitting `alt` is *invalid HTML*, and a non-empty placeholder like "decorative image" is read aloud and adds noise.
-4. **B** — Heading levels must not skip going down. `<h1>` → `<h2>` → `<h4>` skips `<h3>` and breaks the document outline. WCAG 1.3.1 (Info and Relationships) and 2.4.6 (Headings and Labels) both apply.
-5. **C** — `<article>` is for self-contained compositions: blog posts, news stories, user comments, product cards. The HTML Living Standard explicitly lists comments as an `<article>` example.
-6. **B** — The "no-ARIA" rule. Native HTML elements come with the correct semantics baked in; ARIA should only fill gaps the platform cannot.
-7. **A** — Inside the first 1024 bytes, ideally as the first child of `<head>`. The browser uses those bytes to detect encoding before parsing the rest of the document.
-8. **C** — `lang`. Screen readers use it to choose a pronunciation engine; search engines use it for language-aware indexing.
-9. **C** — 3.3.2 Labels or instructions. Every form input must have an associated label (or `aria-label` / `aria-labelledby`).
-10. **C** — `<button type="submit">`. It is keyboard-focusable, Enter- and Space-activatable, exposed to assistive tech as a button, and submits the surrounding form. None of the other options is keyboard-accessible by default.
+**C** — `<button type="submit">`. It is keyboard-focusable, Enter- and Space-activatable, exposed to assistive tech as a button, and submits the surrounding form. None of the other options is keyboard-accessible by default.
 
 </details>
 
 If under 7, re-read [Lecture 1](./lecture-notes/01-what-html-actually-is.md) and [Lecture 2](./lecture-notes/02-semantics-headings-landmarks-a11y.md). If 9 or above, you are ready for the [homework](./homework.md).
+
+---

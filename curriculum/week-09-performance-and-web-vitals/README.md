@@ -35,6 +35,14 @@ By the end of this week, you will be able to:
 - **Run** the **measure-then-fix workflow**: profile the page, identify the single biggest contributor to the worst vital, apply the named fix, re-profile, repeat. Write the before/after numbers in a report. The discipline is what separates senior performance work from cargo-culted "best practices."
 - **Defend** your performance decisions in the language of the docs. "The LCP image is now `<img fetchpriority='high'>` with a `<link rel='preload'>` because the LCP candidate is known at parse time" reads like an engineer who has done this before; "I added some preloads" does not.
 
+## Standards this week meets
+
+| Bar | What this week is measured against |
+| --- | --- |
+| University | `COP 4813` — Measure and improve the performance of a page in the browser. |
+| Industry | Take a page that is slow in production, find the single biggest cause, fix that one thing, and show the before-and-after number to somebody who is paying for it. |
+| Beyond the bar | The audit target is a page built slow on purpose, and the whole diagnosis is published as a worked walkthrough so a learner can compare their reasoning against one that is written down — `exercises/SOLUTIONS.md` |
+
 ---
 
 ## Prerequisites

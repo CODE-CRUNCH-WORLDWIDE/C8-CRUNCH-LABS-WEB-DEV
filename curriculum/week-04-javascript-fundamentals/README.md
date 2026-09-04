@@ -27,6 +27,14 @@ By the end of this week, you will be able to:
 - **Persist** application state to `localStorage`, with a `JSON.stringify` / `JSON.parse` round-trip and a defensive check for storage being full or unavailable.
 - **Defend** a JavaScript decision — `const` over `let`, `===` over `==`, an arrow function over a declaration — by citing the ECMAScript Language Specification (currently ECMA-262, 15th edition, June 2024).
 
+## Standards this week meets
+
+| Bar | What this week is measured against |
+| --- | --- |
+| University | `CS 4241` — Program in JavaScript: types, operators, control flow, functions, scope and modules. |
+| Industry | Write the small program that runs inside somebody else's browser and keeps their data intact across a refresh. |
+| Beyond the bar | The scope lecture reads the language specification rather than summarising it — the temporal dead zone traced through the engine's pre-execution pass, with the real `ReferenceError` it produces — `lecture-notes/02-scope-closures-and-modules.md` |
+
 ---
 
 ## Prerequisites

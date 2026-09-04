@@ -30,6 +30,14 @@ By the end of this week, you will be able to:
 - **Build** a multi-step form: state for the current step, validation that runs per step (not per submit), focus management when moving between steps (focus the heading of the new step), and a visible progress indicator with `aria-current="step"`.
 - **Cite** WCAG 2.2 Success Criteria for any form-accessibility decision you defend: SC 1.3.1 (Info and Relationships), SC 1.3.5 (Identify Input Purpose), SC 3.3.1 (Error Identification), SC 3.3.2 (Labels or Instructions), SC 3.3.3 (Error Suggestion), SC 3.3.4 (Error Prevention — legal/financial/data), and SC 4.1.2 (Name, Role, Value).
 
+## Standards this week meets
+
+| Bar | What this week is measured against |
+| --- | --- |
+| University | `CIS 3319` — Collect input through HTML forms and validate it on the client before it is submitted. |
+| Industry | Build the form that stands between a stranger and the thing they came for, and make its errors say what to do next rather than that something went wrong. |
+| Beyond the bar | Error messaging is treated as an accessibility deliverable, wired with `aria-describedby` and `aria-invalid` and with focus managed so a screen reader announces the message the moment focus reaches the field — `exercises/exercise-03-error-messaging-a11y.md` |
+
 ---
 
 ## Prerequisites

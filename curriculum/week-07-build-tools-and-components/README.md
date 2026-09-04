@@ -34,6 +34,14 @@ By the end of this week, you will be able to:
 - **Audit** a Vite-built bundle with **rollup-plugin-visualizer**: read the treemap, identify the largest dependencies, propose three ways to shrink the bundle (dynamic `import()`, replacing a dependency with a lighter alternative, dropping the dependency entirely).
 - **Cite** the Vite documentation by section, the Astro documentation by section, and the React documentation by page when defending an architectural decision.
 
+## Standards this week meets
+
+| Bar | What this week is measured against |
+| --- | --- |
+| University | `CS 4241` — Use a client-side toolchain and compose an interface from reusable components. |
+| Industry | Own the build: know what the bundler emits, what each dependency costs in shipped bytes, and which of those bytes the user needed. |
+| Beyond the bar | A hard bundle budget the learner has to defend with a treemap — read the visualizer, name the three heaviest dependencies, and propose three ways to shrink them — `challenges/challenge-01-bundle-size-budget.md` |
+
 ---
 
 ## Prerequisites

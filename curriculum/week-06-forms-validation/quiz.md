@@ -11,6 +11,13 @@ Ten questions. Lecture notes closed. Aim for 9/10.
 - C) The W3C WAI-ARIA 1.2 Specification
 - D) MDN Web Docs
 
+<details>
+<summary>Answer</summary>
+
+**B** — The **WHATWG HTML Living Standard, §4.10 (Forms)** is the normative source for the form model, every form-associated element, the constraint attributes, the Constraint Validation API, and the submission algorithm. ECMA-262 defines the language; WAI-ARIA defines the accessibility vocabulary; MDN documents the spec but is not normative.
+
+</details>
+
 ---
 
 **Q2.** You write `<input type="email" placeholder="Email address" required>` and no `<label>`. What is the accessibility problem?
@@ -19,6 +26,13 @@ Ten questions. Lecture notes closed. Aim for 9/10.
 - B) `placeholder` is not a programmatic label; the input has no accessible name, violating WCAG 2.2 SC 1.3.1 and SC 4.1.2.
 - C) `type="email"` requires a `pattern` attribute too.
 - D) The `placeholder` will not display correctly in dark mode.
+
+<details>
+<summary>Answer</summary>
+
+**B** — Per WCAG 2.2 SC 1.3.1 (Info and Relationships) and SC 4.1.2 (Name, Role, Value), every form control must have a programmatically determinable name. The `placeholder` attribute is not a label; it disappears the moment the user types, screen readers do not consistently announce it, and per WCAG 2.2 SC 3.3.2 the input needs a *label or instruction*, neither of which the placeholder provides. The fix is `<label for="email">Email</label>` next to the input.
+
+</details>
 
 ---
 
@@ -29,6 +43,13 @@ Ten questions. Lecture notes closed. Aim for 9/10.
 - C) `patternMismatch`
 - D) `rangeUnderflow`
 
+<details>
+<summary>Answer</summary>
+
+**B** — `tooShort`. Per HTML Living Standard §4.10.5.5.7: the flag is set when the value is non-empty and shorter than `minLength` after the value has been edited by the user. Note the "after edited" qualifier — `tooShort` does not fire on first blur of an empty required field (that fires `valueMissing` instead).
+
+</details>
+
 ---
 
 **Q4.** What does `event.preventDefault()` inside an `invalid` event handler accomplish?
@@ -37,6 +58,13 @@ Ten questions. Lecture notes closed. Aim for 9/10.
 - B) It clears the field's `customError` flag.
 - C) It suppresses the browser's native validation bubble; the constraint is still violated but the platform leaves the UI to you.
 - D) It re-runs `checkValidity()` after the handler returns.
+
+<details>
+<summary>Answer</summary>
+
+**C** — Suppresses the native validation bubble. Per HTML Living Standard §4.10.21.4: "the user agent should report the problems with the constraints of that element to the user, *unless one of the event listeners for that event has cancelled the event*." The constraint is still violated and the form still refuses to submit; the platform just steps aside on the UI.
+
+</details>
 
 ---
 
@@ -47,6 +75,13 @@ Ten questions. Lecture notes closed. Aim for 9/10.
 - C) `:required`
 - D) `:focus-visible`
 
+<details>
+<summary>Answer</summary>
+
+**B** — `:user-invalid`. Shipped in every browser since 2023. Per the CSS Selectors Level 4 specification: matches a form control that has been validated by the user and determined invalid since the last user interaction. The older `:invalid` selector matches on page load if `required` is set with no value — a UX anti-pattern. `:user-invalid` fixes that.
+
+</details>
+
 ---
 
 **Q6.** You want a screen reader to announce an error message the moment a field receives focus. Which ARIA attribute on the input is essential?
@@ -55,6 +90,13 @@ Ten questions. Lecture notes closed. Aim for 9/10.
 - B) `aria-hidden`
 - C) `aria-describedby` (pointing at the error element) plus `aria-invalid="true"`
 - D) `role="alert"`
+
+<details>
+<summary>Answer</summary>
+
+**C** — `aria-describedby` pointing at the inline error element, plus `aria-invalid="true"`. Per WAI-ARIA 1.2: `aria-describedby` makes the description part of the input's announcement at focus time; `aria-invalid="true"` triggers most screen readers to add "invalid entry" to the announcement. `aria-label` overrides the visible label (the wrong tool); `role="alert"` is for the error summary, not the field.
+
+</details>
 
 ---
 
@@ -65,6 +107,13 @@ Ten questions. Lecture notes closed. Aim for 9/10.
 - C) `autocomplete="current-password"`
 - D) `autocomplete="new-password"`
 
+<details>
+<summary>Answer</summary>
+
+**D** — `autocomplete="new-password"`. Per HTML Living Standard §4.10.18.7 and per Safari / Chrome implementation: the browser only offers to generate a strong password when it sees `new-password`. `current-password` triggers the "fill saved password" flow instead. Mislabeling either breaks both flows. `autocomplete="password"` is not a valid token; `autocomplete="off"` is ignored by Chrome and Safari on password fields by design.
+
+</details>
+
 ---
 
 **Q8.** Per WCAG 2.2 Success Criterion 3.3.3 (Error Suggestion, Level AA), an error message must do what beyond identifying that a field is in error?
@@ -73,6 +122,13 @@ Ten questions. Lecture notes closed. Aim for 9/10.
 - B) Provide a suggestion for how to correct the error, when the suggestion is known.
 - C) Include a link to the help page.
 - D) Be displayed in a modal dialog.
+
+<details>
+<summary>Answer</summary>
+
+**B** — Provide a suggestion for how to correct the error, when the suggestion is known. Per WCAG 2.2 SC 3.3.3 (Error Suggestion, Level AA): the error must say what would fix it. "Use at least 8 characters" satisfies the criterion; "Invalid password" does not. The criterion explicitly applies "if suggestions for correction are known"; if no suggestion is possible (e.g., for a server-side rule whose reason cannot be revealed for security reasons), identifying the error is enough.
+
+</details>
 
 ---
 
@@ -83,6 +139,13 @@ Ten questions. Lecture notes closed. Aim for 9/10.
 - C) Add `aria-atomic="true"` (redundant — `role="alert"` already implies this).
 - D) Add a `<title>` attribute to the summary.
 
+<details>
+<summary>Answer</summary>
+
+**B** — Call `.focus()` on the summary. `role="alert"` makes the new content announced, but the user's keyboard is still on the Send button (or wherever it was). Calling `summary.focus()` moves the keyboard to the summary so the user can immediately Tab into the form's error fields or activate the in-summary anchor links. Per WCAG 2.2 SC 2.4.3 (Focus Order). `tabindex="-1"` is what makes `.focus()` work on a non-focusable `<div>`.
+
+</details>
+
 ---
 
 **Q10.** The submit handler reads form data with `new FormData(form)`. For a `<select multiple>` or a checkbox group sharing a `name`, which method retrieves every value the field contributed?
@@ -92,24 +155,13 @@ Ten questions. Lecture notes closed. Aim for 9/10.
 - C) `formData.entries(name)`
 - D) `formData[name]`
 
----
-
-## Answer key
-
 <details>
-<summary>Click to reveal</summary>
+<summary>Answer</summary>
 
-1. **B** — The **WHATWG HTML Living Standard, §4.10 (Forms)** is the normative source for the form model, every form-associated element, the constraint attributes, the Constraint Validation API, and the submission algorithm. ECMA-262 defines the language; WAI-ARIA defines the accessibility vocabulary; MDN documents the spec but is not normative.
-2. **B** — Per WCAG 2.2 SC 1.3.1 (Info and Relationships) and SC 4.1.2 (Name, Role, Value), every form control must have a programmatically determinable name. The `placeholder` attribute is not a label; it disappears the moment the user types, screen readers do not consistently announce it, and per WCAG 2.2 SC 3.3.2 the input needs a *label or instruction*, neither of which the placeholder provides. The fix is `<label for="email">Email</label>` next to the input.
-3. **B** — `tooShort`. Per HTML Living Standard §4.10.5.5.7: the flag is set when the value is non-empty and shorter than `minLength` after the value has been edited by the user. Note the "after edited" qualifier — `tooShort` does not fire on first blur of an empty required field (that fires `valueMissing` instead).
-4. **C** — Suppresses the native validation bubble. Per HTML Living Standard §4.10.21.4: "the user agent should report the problems with the constraints of that element to the user, *unless one of the event listeners for that event has cancelled the event*." The constraint is still violated and the form still refuses to submit; the platform just steps aside on the UI.
-5. **B** — `:user-invalid`. Shipped in every browser since 2023. Per the CSS Selectors Level 4 specification: matches a form control that has been validated by the user and determined invalid since the last user interaction. The older `:invalid` selector matches on page load if `required` is set with no value — a UX anti-pattern. `:user-invalid` fixes that.
-6. **C** — `aria-describedby` pointing at the inline error element, plus `aria-invalid="true"`. Per WAI-ARIA 1.2: `aria-describedby` makes the description part of the input's announcement at focus time; `aria-invalid="true"` triggers most screen readers to add "invalid entry" to the announcement. `aria-label` overrides the visible label (the wrong tool); `role="alert"` is for the error summary, not the field.
-7. **D** — `autocomplete="new-password"`. Per HTML Living Standard §4.10.18.7 and per Safari / Chrome implementation: the browser only offers to generate a strong password when it sees `new-password`. `current-password` triggers the "fill saved password" flow instead. Mislabeling either breaks both flows. `autocomplete="password"` is not a valid token; `autocomplete="off"` is ignored by Chrome and Safari on password fields by design.
-8. **B** — Provide a suggestion for how to correct the error, when the suggestion is known. Per WCAG 2.2 SC 3.3.3 (Error Suggestion, Level AA): the error must say what would fix it. "Use at least 8 characters" satisfies the criterion; "Invalid password" does not. The criterion explicitly applies "if suggestions for correction are known"; if no suggestion is possible (e.g., for a server-side rule whose reason cannot be revealed for security reasons), identifying the error is enough.
-9. **B** — Call `.focus()` on the summary. `role="alert"` makes the new content announced, but the user's keyboard is still on the Send button (or wherever it was). Calling `summary.focus()` moves the keyboard to the summary so the user can immediately Tab into the form's error fields or activate the in-summary anchor links. Per WCAG 2.2 SC 2.4.3 (Focus Order). `tabindex="-1"` is what makes `.focus()` work on a non-focusable `<div>`.
-10. **B** — `formData.getAll(name)`. Per the XMLHttpRequest standard's FormData definition: `get(name)` returns the first value; `getAll(name)` returns the array of every value submitted under that name. `entries()` is the iterable of every entry; `formData[name]` is not part of the interface. Use `getAll` for any field that can contribute multiple values: `<select multiple>`, a checkbox group sharing a `name`, a file input with `multiple`.
+**B** — `formData.getAll(name)`. Per the XMLHttpRequest standard's FormData definition: `get(name)` returns the first value; `getAll(name)` returns the array of every value submitted under that name. `entries()` is the iterable of every entry; `formData[name]` is not part of the interface. Use `getAll` for any field that can contribute multiple values: `<select multiple>`, a checkbox group sharing a `name`, a file input with `multiple`.
 
 </details>
 
 If under 7, re-read [Lecture 1](./lecture-notes/01-html5-form-semantics.md) and [Lecture 2](./lecture-notes/02-validation-error-messaging-autofill.md). If 9 or above, you are ready for the [homework](./homework.md).
+
+---

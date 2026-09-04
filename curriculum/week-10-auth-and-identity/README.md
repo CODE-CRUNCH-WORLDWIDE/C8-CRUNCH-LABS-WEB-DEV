@@ -35,6 +35,14 @@ By the end of this week, you will be able to:
 - **Stand up** a local Keycloak realm with one client (the React SPA) and one user (yourself), import the supplied `realm-export.json`, and verify the OIDC discovery document at `http://localhost:8080/realms/crunch/.well-known/openid-configuration`.
 - **Defend** your auth decisions in the language of the specs. "We use the authorization-code flow with PKCE per the OAuth 2.1 draft; we use rotating refresh tokens per RFC 9700 §4.14.2; we validate the ID token's `aud`, `iss`, `exp`, and `nonce` per OIDC Core 1.0 §3.1.3.7" reads like an engineer who has done this before; "we use JWTs and bearer tokens" does not.
 
+## Standards this week meets
+
+| Bar | What this week is measured against |
+| --- | --- |
+| University | `CIS 3319` — Apply authentication and authorization to a web client, and recognise the common web security risks. |
+| Industry | Stand up sign-in for a product without becoming the reason its accounts leak: short-lived access tokens, rotated refresh tokens, and nothing sensitive in a claim. |
+| Beyond the bar | Refresh-token reuse detection is demonstrated by a harness that produces a report, rather than asserted on a slide — `challenges/challenge-01-refresh-rotation.md` |
+
 ---
 
 ## Prerequisites

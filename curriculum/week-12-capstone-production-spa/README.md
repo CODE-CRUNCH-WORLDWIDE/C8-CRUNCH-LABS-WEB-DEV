@@ -60,6 +60,14 @@ By the end of this week, you will be able to:
 - **Recognize** the capstone failure modes — scope creep (week 1: "I'll build a Twitter clone"), late deploy (week 6: "deploy on Sunday after everything is done"), brittle CI (CI uses `--no-verify` to bypass failing tests), shallow auth ("the login button is a `<a href="/profile">`"), and write commits that show real iteration rather than three "final" pushes.
 - **Plan** the next four projects on the roadmap after C8 — a real-time chat app (introduces WebSockets), a PWA with offline support (introduces service workers), a static-export SSG (introduces Astro or Next.js), and a full-stack feature (introduces a backend and a database). Reference: <https://roadmap.sh/frontend>.
 
+## Standards this week meets
+
+| Bar | What this week is measured against |
+| --- | --- |
+| University | `COP 4813` — Explain HTTP and the client-server model, and deploy a working site to a public host. |
+| Industry | Ship it: a live URL, response headers a reviewer can read back with `curl -I`, a pipeline that gates the deploy, and a README a stranger can follow from a clean clone. |
+| Beyond the bar | The Content-Security-Policy is written against the real console violations it causes, then tightened until the application still works end to end — `lecture-notes/02-security-headers-and-csp-in-anger.md` |
+
 ---
 
 ## Prerequisites
